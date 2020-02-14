@@ -1,0 +1,7 @@
+const dbOperation = {
+    add(question){
+        
+        
+    }
+
+}

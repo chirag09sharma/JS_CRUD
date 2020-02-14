@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Teacher CRUD</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="CSS/design.css">
+    <script src="/classmarker/js/Teachers/firebase.js"></script>
+    <!-- <script src="/classmarker/js/Teachers/db.js"></script> -->
+    <script src="utils.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.1/firebase-app.js"></script>
+
+    <script src="js/Teachers/model/question.js"></script>
+    <script src="js/Teachers/model/questionOperations.js"></script>
+    <script src="js/Teachers/controller/ctrl.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="alert-success text-center">Question CRUD</h1>
+
+
+        <div class="form-group">
+            <label for="">Id</label>
+            <label id="id" class="form-control"></label>
+            <!-- <input id="id" class="form-control clear" > -->
+        </div>
+
+
+        <div class="form-group">
+            <label for="">Name</label>
+            <textarea class="form-control clear" id="name" cols="30" rows="5" placeholder="Type Question here"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="">Option A</label>
+            <input id="optionA" type="text" class="form-control clear" placeholder="Type option A">
+        </div>
+
+        <div class="form-group">
+            <label for="">Option B</label>
+            <input id="optionB" type="text" class="form-control clear" placeholder="Type option B">
+        </div>
+
+        <div class="form-group">
+            <label for="">Option C</label>
+            <input id="optionC" type="text" class="form-control clear" placeholder="Type option C">
+        </div>
+
+        <div class="form-group">
+            <label for="">Option D</label>
+            <input id="optionD" type="text" class="form-control clear" placeholder="Type option D">
+        </div>
+
+        <div class="form-group">
+            <label for="">Right Answer</label>
+            <input id="Rans" type="text" class="form-control clear" placeholder="Type Right Answer">
+        </div>
+
+        <div class='form-group'>
+            <label for="">Score</label>
+            <input id="score" class='form-control' type="range" min="1" max="10" value="1">
+        </div>
+
+
+            <div class="form-group">
+                <button id="add" class='btn btn-primary'>Add</button>
+                <button id="delete" class='btn btn-danger'>Delete</button>
+                <button id="search" class='btn btn-info'>Search</button>
+                <button class='btn btn-secondary'>Update</button>
+                <button id="save" class='btn btn-success'>Save</button>
+                <button id="load" class='btn btn-warning'>Load</button>
+                <button id="clear" class='btn btn-secondary'>Clear All</button>
+                <button id="sort" class='btn btn-info'>Sort</button>
+                <button id = "saveToServer" class='btn btn-success'>Save to server</button>
+                <button class='btn btn-secondary'>Fetch From server</button>
+                <button id="deltable" class='btn btn-secondary'>Delete Table</button>
+            </div>
+            <div class="form-group" id="hide">
+               
+                <select name="mytype" id="type">
+                    <option>Select...<option>
+                <option value="Name">Name</option>
+                <option value="Id">Id</option>
+                <option value="Score">Score</option>
+                
+                </select>
+                <input type="text" id="data" class="form-control" placeholder="Type here for serach">
+                <button class="btn btn-success " id="searchbutton">Search Now</button> 
+
+            </div>
+
+
+            <div class="form-group" id="hidden">
+               
+                <select name="mytype" id="sorttype">
+                    <option><option>
+                    <option value="sortScore">Score</option>  
+                </select>
+
+               <button class="btn btn-success " id="sortnow">Sort Now</button> 
+
+
+            </div>
+
+
+
+
+
+                <h2>Total Records <span id="total"></span>Mark Records <span id="mark"></span>Unmark Records <span id="unmark"></span></h2>
+
+
+               <div>
+                   <table class="table table-bordered">
+                            <thead class="thead-dark text-center">
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Name</th>
+                                    <th>OptionA</th>
+                                    <th>OptionB</th>
+                                    <th>OptionC</th>
+                                    <th>OptionD</th>
+                                    <th>Rans</th>
+                                    <th>Score</th>
+                                    <th>Operations</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="questions">
+                                
+                            </tbody>
+
+                   </table>
+               </div> 
+
+
+    </div>
+
+
+    
+</body>
+</html>
